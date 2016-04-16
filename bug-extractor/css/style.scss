@@ -1,0 +1,41 @@
+@import 'mixins';
+@import 'table';
+@import 'config';
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: $bg-color;
+  color: $main-color;
+  font-family: $font-stack;
+}
+
+#top-bar {
+  @include flex(row);
+  @include flex-space-center();
+  font-family: $font-title;
+}
+
+.darker-bg {
+  background-color: $darker-bg;
+  color: $lighter-color;
+}
+
+.default-hidden {
+  display: none;
+}
+
+#settings {
+  background-color: $darker-bg;
+  color: $lighter-color;
+}
+
+div.file-button {
+  border: 1px solid #CCC;
+  border-radius: 1px;
+
+  input.input-file-button{
+    font-family: $font-subtitle;
+  }
+}

@@ -1,0 +1,26 @@
+<script id="table-template" type="text/template">
+    <h1>YO BRO</h1>
+    Issues:
+    <ul>
+        {{#issues}}
+        <li><i>{{id}}</i> <strong>{{title}}</strong>: {{content}}</li>
+        {{/issues}}
+    </ul>
+
+    <h1>Testing tables</h1>
+
+    <table class="striped highlight">
+        <tr>
+            <th class="table-header">ID</th>
+            <th class="table-header">Titolo</th>
+            <th class="table-header">Contenuto</th>
+        </tr>
+        {{#issues}}
+        <tr>
+            <td class="table-content issue-id">{{id}}</td>
+            <td class="table-content issue-title">{{title}}</td>
+            <td class="table-content issue-content">{{content}}</td>
+        </tr>
+        {{/issues}}
+    </table>
+</script>

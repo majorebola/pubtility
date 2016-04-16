@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BitBucket BugList Extractor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="js/mustache.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+    <div id="main-container">
+        <div id="top-bar" class="darker-bg">
+            <p>Top Bar with the form</p>
+            <div class="file-button">
+                <input type="file" id="input-file" class="input-file-button">
+            </div>
+            <div id="settings-button">Options</div>
+        </div>
+        <div id="settings" class="default-hidden">
+            <h1>A bunch of options</h1>
+        </div>
+        <div id="center-container">Main container with the generated table
+            <div id="table-container">
+                <!-- generated content -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
