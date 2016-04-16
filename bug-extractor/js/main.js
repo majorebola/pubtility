@@ -14,20 +14,10 @@ var init = function() {
         loadFile(this.files);
     };
 
-    document.getElementById('settings-button').onclick = function() {
-        $("#settings").slideToggle();
-    };
-
     fileReader.onload = function() {
         console.log(fileReader.result);
         buildTable(fileReader.result);
     };
-
-    filters = {
-        status: 'resolved',
-        min_id: 10,
-        max_id: 25
-    }
 };
 
 var loadFile = function(datas) {
@@ -38,6 +28,8 @@ var loadFile = function(datas) {
 var buildTable = function(result) {
     console.log("building table . . . ");
     var data = JSON.parse(result);
+
+    var filters = getFilters();
 
     var filteredData = filterData(data, filters);
 
@@ -50,6 +42,15 @@ var buildTable = function(result) {
     });
 };
 
+var getFilters = function() {
+    var filters = {
+        status: $("#status").val(),
+        min_id: $("#minimum-id").val(),
+        max_id: $("#maximum-id").val()
+    };
+
+    return filters;
+};
 
 var filterData = function(data, filters) {
     var issues = data.issues;
@@ -64,5 +65,17 @@ var filterData = function(data, filters) {
 };
 
 var checkFilter = function(issue, filters) {
+    return checkId(issue, filters) && checkStatus(issue, filters);
+};
+var checkId = function(issue, filters) {
+    return checkMinId(issue, filters) && checkMaxId(issue, filters);
+};
+var checkMinId = function(issue, filters) {
+    return filters.min_id == 0 || issue.id > filters.min_id;
+};
+var checkMaxId = function(issue, filters) {
+    return filters.max_id == 0 || issue.id < filters.max_id;
+};
+var checkStatus = function(issue, filters) {
     return issue.status == filters.status;
 };

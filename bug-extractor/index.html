@@ -12,13 +12,28 @@
     <div id="main-container">
         <div id="top-bar" class="darker-bg">
             <p>Top Bar with the form</p>
-            <div class="file-button">
-                <input type="file" id="input-file" class="input-file-button">
-            </div>
-            <div id="settings-button">Options</div>
+            <input type="file" id="input-file" class="input-file-button">
         </div>
-        <div id="settings" class="default-hidden">
-            <h1>A bunch of options</h1>
+        <div id="settings">
+            <div class="inner-settings">
+                <div class="line-setting">
+                    <div class="line-setting">
+                        <p>Minimum ID</p>
+                        <input id="minimum-id" type="number" value="0">
+                    </div>
+                    <div class="line-setting">
+                        <p>Maximum ID</p>
+                        <input id="maximum-id" type="number" value="0">
+                    </div>
+                    <div class="line-setting">
+                        <p>Status</p>
+                        <select id="status">
+                            <option value="resolved" selected>Resolved</option>
+                            <option value="new">New</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="center-container">
             <div id="table-container">

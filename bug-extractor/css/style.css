@@ -10,38 +10,6 @@
 @font-face {
   font-family: Roboto-Regular;
   src: url(font/Roboto-Regular.woff); }
-table, th, td {
-  border: none; }
-
-table {
-  width: 100%;
-  display: table; }
-
-table.striped > tbody > tr:nth-child(odd) {
-  background-color: #f2f2f2; }
-
-table.striped > tbody > tr > td {
-  border-radius: 0; }
-
-table.highlight > tbody > tr {
-  transition: background-color .25s ease; }
-
-table.highlight > tbody > tr:hover {
-  background-color: #f2f2f2; }
-
-table.centered thead tr th, table.centered tbody tr td {
-  text-align: center; }
-
-thead {
-  border-bottom: 1px solid #d0d0d0; }
-
-td, th {
-  padding: 15px 5px;
-  display: table-cell;
-  text-align: left;
-  vertical-align: middle;
-  border-radius: 2px; }
-
 body {
   width: 100%;
   min-height: 100vh;
@@ -64,9 +32,24 @@ body {
 .default-hidden {
   display: none; }
 
+#settings-button {
+  cursor: pointer; }
+
 #settings {
   background-color: #09090a;
   color: #d5d5d5; }
+  #settings div.inner-settings {
+    display: flex;
+    flex-direction: column; }
+    #settings div.inner-settings div.line-setting {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center; }
+    #settings div.inner-settings input[type=number] {
+      width: 20%; }
+  #settings p {
+    margin: 0.3em; }
 
 div.file-button {
   border: 1px solid #CCC;
