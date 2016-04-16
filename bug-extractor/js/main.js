@@ -1,18 +1,16 @@
 window.onload = function() {
     init();
 };
-
 var inputFile;
 var fileReader;
-var filters;
 
 var init = function() {
     inputFile = document.getElementById('input-file');
     fileReader = new FileReader();
 
-    inputFile.onchange = function() {
-        loadFile(this.files);
-    };
+    $('#generate').click(function() {
+        loadFile(inputFile.files);
+    });
 
     fileReader.onload = function() {
         console.log(fileReader.result);
@@ -22,19 +20,35 @@ var init = function() {
 
 var loadFile = function(datas) {
     var file = datas[0];
-    fileReader.readAsText(file);
+    if (file) {
+        fileReader.readAsText(file);
+    } else {
+        alert("load a file. A .JSON file");
+    }
 };
 
+
+/**
+ * Main BuildTable
+ * @param result
+ */
 var buildTable = function(result) {
     console.log("building table . . . ");
-    var data = JSON.parse(result);
+    var data = JSON.parse(result);      // imported data from file
 
+    // getting filters from gui
     var filters = getFilters();
 
+    // filtering
     var filteredData = filterData(data, filters);
 
+    // overwriting issues with filtered issues
     data.issues = filteredData;
 
+    // adding output settings to the main object
+    data.outputSetting = getOutputSettings();
+
+    // generating the template
     $("<div>", {id: 'template-mustache'}).appendTo('body');
     $('#template-mustache').load("table.html", function() {
         var html = Mustache.to_html($('#table-template').html(), data);
@@ -42,16 +56,34 @@ var buildTable = function(result) {
     });
 };
 
+
+var getOutputSettings = function() {
+    var outputSettings = {};
+    $("[type=checkbox]:checked").each(function(counter, item) {
+        outputSettings[item.id] = true;
+    });
+    var type = $('#output-type').val();
+    if(type == "list") {
+        outputSettings.showList = true;
+    } else if (type == "table") {
+        outputSettings.showTable = true;
+    }
+    return outputSettings;
+};
+
+
+// get filters from gui
 var getFilters = function() {
     var filters = {
-        status: $("#status").val(),
+        status: $("#query-status").val(),
         min_id: $("#minimum-id").val(),
         max_id: $("#maximum-id").val()
     };
-
     return filters;
 };
 
+
+// apply filters
 var filterData = function(data, filters) {
     var issues = data.issues;
     var filtered = [];

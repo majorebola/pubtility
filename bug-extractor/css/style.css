@@ -20,10 +20,24 @@ body {
 
 #top-bar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-family: Roboto-Bold; }
+  #top-bar .top-bar-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 94%;
+    margin: 0 3%; }
+  #top-bar div.line-setting {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; }
+  #top-bar input[type=number] {
+    width: 20%; }
 
 .darker-bg {
   background-color: #09090a;
@@ -41,13 +55,6 @@ body {
   #settings div.inner-settings {
     display: flex;
     flex-direction: column; }
-    #settings div.inner-settings div.line-setting {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center; }
-    #settings div.inner-settings input[type=number] {
-      width: 20%; }
   #settings p {
     margin: 0.3em; }
 

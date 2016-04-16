@@ -1,26 +1,87 @@
 <script id="table-template" type="text/template">
-    <h1>YO BRO</h1>
-    Issues:
+    {{#outputSetting.showList}}
+    <h3>Solved Issues</h3>:
     <ul>
         {{#issues}}
-        <li><i>{{id}}</i> <strong>{{title}}</strong>: {{content}}</li>
+        <li>
+            {{#outputSetting.id}}
+                <i>{{id}}</i>&nbsp;
+            {{/outputSetting.id}}
+            {{#outputSetting.priority}}
+                [{{priority}}]&nbsp;
+            {{/outputSetting.priority}}
+            {{#outputSetting.title}}
+                <strong>{{title}}</strong>&nbsp;
+            {{/outputSetting.title}}
+            {{#outputSetting.content}}
+                {{content}}&nbsp;
+            {{/outputSetting.content}}
+            {{#outputSetting.assignee}}
+                <i>{{assignee}}</i>&nbsp;
+            {{/outputSetting.assignee}}
+            {{#outputSetting.reporter}}
+                <i>{{reporter}}</i>
+            {{/outputSetting.reporter}}
+            {{#outputSetting.kind}}
+                [{{kind}}]
+            {{/outputSetting.kind}}
+        </li>
         {{/issues}}
     </ul>
+    {{/outputSetting.showList}}
 
-    <h1>Testing tables</h1>
-
+    {{#outputSetting.showTable}}
+    <h3>Testing tables</h3>
     <table class="striped highlight">
         <tr>
+            {{#outputSetting.id}}
             <th class="table-header">ID</th>
-            <th class="table-header">Titolo</th>
-            <th class="table-header">Contenuto</th>
+            {{/outputSetting.id}}
+            {{#outputSetting.priority}}
+            <th class="table-header">Priority</th>
+            {{/outputSetting.priority}}
+            {{#outputSetting.title}}
+            <th class="table-header">Title</th>
+            {{/outputSetting.title}}
+            {{#outputSetting.content}}
+            <th class="table-header">Content</th>
+            {{/outputSetting.content}}
+            {{#outputSetting.assignee}}
+            <th class="table-header">Assignee</th>
+            {{/outputSetting.assignee}}
+            {{#outputSetting.reporter}}
+            <th class="table-header">Reporter</th>
+            {{/outputSetting.reporter}}
+            {{#outputSetting.kind}}
+            <th class="table-header">Kind</th>
+            {{/outputSetting.kind}}
+
         </tr>
         {{#issues}}
         <tr>
+            {{#outputSetting.id}}
             <td class="table-content issue-id">{{id}}</td>
+            {{/outputSetting.id}}
+            {{#outputSetting.priority}}
+            <td class="table-content issue-priority">{{priority}}</td>
+            {{/outputSetting.priority}}
+            {{#outputSetting.title}}
             <td class="table-content issue-title">{{title}}</td>
+            {{/outputSetting.title}}
+            {{#outputSetting.content}}
             <td class="table-content issue-content">{{content}}</td>
+            {{/outputSetting.content}}
+            {{#outputSetting.assignee}}
+            <td class="table-content issue-assignee">{{assignee}}</td>
+            {{/outputSetting.assignee}}
+            {{#outputSetting.reporter}}
+            <td class="table-content issue-reporter">{{reporter}}</td>
+            {{/outputSetting.reporter}}
+            {{#outputSetting.kind}}
+            <td class="table-content issue-kind">{{kind}}</td>
+            {{/outputSetting.kind}}
         </tr>
         {{/issues}}
     </table>
+    {{/outputSetting.showTable}}
 </script>

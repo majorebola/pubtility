@@ -11,28 +11,70 @@
 <body>
     <div id="main-container">
         <div id="top-bar" class="darker-bg">
-            <p>Top Bar with the form</p>
-            <input type="file" id="input-file" class="input-file-button">
-        </div>
-        <div id="settings">
-            <div class="inner-settings">
+            <div class="top-bar-line">
+                <p>1. Select the file</p>
+                <input type="file" id="input-file" class="input-file-button">
+            </div>
+            <div class="top-bar-line">
+                <p>2. Configure input</p>
                 <div class="line-setting">
-                    <div class="line-setting">
-                        <p>Minimum ID</p>
-                        <input id="minimum-id" type="number" value="0">
-                    </div>
-                    <div class="line-setting">
-                        <p>Maximum ID</p>
-                        <input id="maximum-id" type="number" value="0">
-                    </div>
-                    <div class="line-setting">
-                        <p>Status</p>
-                        <select id="status">
-                            <option value="resolved" selected>Resolved</option>
-                            <option value="new">New</option>
-                        </select>
-                    </div>
+                    <p>Minimum ID</p>
+                    <input id="minimum-id" type="number" value="0">
                 </div>
+                <div class="line-setting">
+                    <p>Maximum ID</p>
+                    <input id="maximum-id" type="number" value="0">
+                </div>
+                <div class="line-setting">
+                    <p>Status</p>
+                    <select id="query-status">
+                        <option value="resolved" selected>Resolved</option>
+                        <option value="new">New</option>
+                    </select>
+                </div>
+            </div>
+            <div class="top-bar-line">
+                <p>3. Configure Output</p>
+                <div class="line-setting">
+                    <p>Id</p>
+                    <input type="checkbox" checked id="id">
+                </div>
+                <div class="line-setting">
+                    <p>Reporter</p>
+                    <input type="checkbox" id="reporter">
+                </div>
+                <div class="line-setting">
+                    <p>Assignee</p>
+                    <input type="checkbox" id="assignee">
+                </div>
+                <div class="line-setting">
+                    <p>Priority</p>
+                    <input type="checkbox" id="priority">
+                </div>
+                <div class="line-setting">
+                    <p>Kind</p>
+                    <input type="checkbox" id="kind">
+                </div>
+                <div class="line-setting">
+                    <p>Title</p>
+                    <input type="checkbox" checked id="title">
+                </div>
+                <div class="line-setting">
+                    <p>Content</p>
+                    <input type="checkbox" checked id="content">
+                </div>
+                <div class="line-setting">
+                    <p>Status</p>
+                    <input type="checkbox" id="status">
+                </div>
+            </div>
+            <div class="top-bar-line">
+                <p>4. Choose Output and Generate</p>
+                <select id="output-type">
+                    <option value="list" selected>List</option>
+                    <option value="table">Table</option>
+                </select>
+                <button id="generate">Generate</button>
             </div>
         </div>
         <div id="center-container">
