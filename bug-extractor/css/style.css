@@ -1,0 +1,77 @@
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(font/Roboto-Medium.woff); }
+@font-face {
+  font-family: Roboto-Thin;
+  src: url(font/Roboto-Thin.woff); }
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(font/Roboto-Bold.woff); }
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(font/Roboto-Regular.woff); }
+table, th, td {
+  border: none; }
+
+table {
+  width: 100%;
+  display: table; }
+
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #f2f2f2; }
+
+table.striped > tbody > tr > td {
+  border-radius: 0; }
+
+table.highlight > tbody > tr {
+  transition: background-color .25s ease; }
+
+table.highlight > tbody > tr:hover {
+  background-color: #f2f2f2; }
+
+table.centered thead tr th, table.centered tbody tr td {
+  text-align: center; }
+
+thead {
+  border-bottom: 1px solid #d0d0d0; }
+
+td, th {
+  padding: 15px 5px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px; }
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #B9B9BF;
+  color: #222;
+  font-family: Roboto-Regular; }
+
+#top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Roboto-Bold; }
+
+.darker-bg {
+  background-color: #09090a;
+  color: #d5d5d5; }
+
+.default-hidden {
+  display: none; }
+
+#settings {
+  background-color: #09090a;
+  color: #d5d5d5; }
+
+div.file-button {
+  border: 1px solid #CCC;
+  border-radius: 1px; }
+  div.file-button input.input-file-button {
+    font-family: Roboto-Medium; }
+
+/*# sourceMappingURL=style.css.map */
